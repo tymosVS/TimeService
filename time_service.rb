@@ -37,7 +37,7 @@ module TimeService
 
     def shift_minutes(minutes)
       @minutes += minutes
-      if @minutes > 60
+      if @minutes >= 60
         shift_hours(@minutes / 60)
         @minutes = @minutes % 60
       end
@@ -56,8 +56,6 @@ module TimeService
   end
 end
 
-my_time = TimeService::TimeSystem.new('12:00 AM')
+my_time = TimeService::TimeSystem.new()
 
-# puts my_time.add_minutes('9:25 AM', 25)
-puts my_time.shift_hours(88)
-puts my_time.shift_minutes(25)
+puts my_time.add_minutes('9:35 AM', 800)
